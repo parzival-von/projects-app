@@ -2,7 +2,7 @@
 
 <SupraMenu />
 
-    <main>
+    <main class="flex flex-row">
         <LateralisMenu />
         <router-view />
         
@@ -13,4 +13,4 @@
 import SupraMenu from '@/modulorum/commune/components/SupraMenu.vue';
 import LateralisMenu from '../components/LateralisMenu.vue';
 
-</script>
+</script>  
