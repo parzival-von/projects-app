@@ -24,7 +24,7 @@
 <div v-if="aperta" class="fixed top-0 w-screen h-screen bg-black z-10 opacity-40"></div>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 interface Props{
     aperta: boolean;
@@ -34,7 +34,7 @@ interface Props{
     
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
 
 const emisiones = defineEmits<{
     claudere:[void]
@@ -43,6 +43,16 @@ const emisiones = defineEmits<{
 const inputValorem = ref('');
 
 const inputRef = ref<HTMLInputElement | null>(null);
+
+
+watch(props, ({aperta}) => {
+  setTimeout(() => {
+    if (aperta) {
+        inputRef.value?.focus();
+    }}, 300);
+
+    
+});
 
 const submitValorem = () => {
     console.log(inputValorem.value);
